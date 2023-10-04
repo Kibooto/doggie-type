@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Doggie Type</title>
+</head>
+<body>
+    <nav>
+        <div class="main-nav-container">
+            <ul class="nav-container">
+                <li class="nav-element"><a href="#" class="logo">Doggie Type</a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">keyboard</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">stars</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">question_mark</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">settings</span></a></li>
+            </ul>
+
+            <ul class="nav-container">
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">notifications</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">account_circle</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <ul class="tools-container">
+            <li class="tools-element"><p class="tools-text">@ punctuation</p></li>
+            <li class="tools-element"><p class="tools-text"># numbers</p></li>
+            <li class="tools-element"><p class="tools-text">$ time</p></li>
+            <li class="tools-element active"><p class="tools-text">A words</p></li>
+            <li class="tools-element"><p class="tools-text">"" quote</p></li>
+            <li class="tools-element"><p class="tools-text">^ zen</p></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="timer">
+            <p id="timer" class="timer-text"></p>
+        </div>
+    </div>
+    <div class="container">
+        <input id="hiddenInput" class="wordsInput" autocomplete="off" autocapitalize="off" autocorrect="off" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff" spellcheck="false">
+        <div id="wordsWraper" class="words-wrapper">
+
+        </div>
+    </div>
+
+</body>
+</html>
