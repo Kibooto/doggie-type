@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/auth.js') }}" defer></script>
     <title>Doggie Type Auth</title>
 </head>
 <body>
@@ -27,32 +28,48 @@
 
     <div class="container">
         <div class="auth-container">
-            <h2 class="auth-title">register</h2>
-            <input type="text" class="auth-input" placeholder="Username">
-            <input type="email" class="auth-input" placeholder="Email">
-            <input type="email" class="auth-input" placeholder="Verify Email">
-            <input type="password" class="auth-input" placeholder="Password">
-            <input type="password" class="auth-input" placeholder="Verify password">
-            <button class="auth-button">
-                <span class="material-symbols-outlined">
-                    person_add
-                </span>
-                Sign Up</button>
+            <form id="RegisterForm">
+                <h2 class="auth-title">register</h2>
+                <input id="reg-username" type="text" class="auth-input" placeholder="Username">
+                <div id="reg-username-error" class="error-container"></div>
+
+                <input id="reg-email" type="email" class="auth-input" placeholder="Email">
+                <div id="reg-email-error" class="error-container"></div>
+
+                <input id="reg-email-submit" type="email" class="auth-input" placeholder="Verify Email">
+                <div id="reg-ver-email-error" class="error-container"></div>
+
+                <input id="reg-password" type="password" class="auth-input" placeholder="Password">
+                <div id="reg-password-error" class="error-container"></div>
+
+                <input id="reg-password-submit" type="password" class="auth-input" placeholder="Verify password">
+                <div id="reg-ver-password-error" class="error-container"></div>
+                <button class="auth-button" type="submit">
+                    <span class="material-symbols-outlined">
+                        person_add
+                    </span>
+                    Sign Up</button>
+                <div class="auth-error"></div>
+            </form>
         </div>
 
-        <div class="auth-container">
-            <h2 class="auth-title">login</h2>
-            <input type="text" class="auth-input" placeholder="Username">
-            <input type="password" class="auth-input" placeholder="Password">
-            <button class="auth-button"><span class="material-symbols-outlined">
-                login
-                </span>
-                Sign In</button>
-            <h2 class="auth-title">or</h2>
-            <button class="auth-button"><span class="material-symbols-outlined">
-                chromecast_device
-                </span>Google Sign In</button>
-        </div>
+        <form id="LoginForm">
+            <div class="auth-container">
+                <h2 class="auth-title">login</h2>
+                <input id="login-username" type="text" class="auth-input" placeholder="Username">
+                <input id="login-password" type="password" class="auth-input" placeholder="Password">
+                <div id="login-error" class="error-container"></div>
+
+                <button class="auth-button disabled" type="submit"><span class="material-symbols-outlined">
+                    login
+                    </span>
+                    Sign In</button>
+                <h2 class="auth-title">or</h2>
+                <button class="auth-button"><span class="material-symbols-outlined">
+                    chromecast_device
+                    </span>Google Sign In</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

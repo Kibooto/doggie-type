@@ -6,6 +6,17 @@
     --main-text-color-2: rgb(100, 102, 105);
 }
 
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+}
+
 body {
     background-color: var(--main-bg-color);
     font-family: 'Prompt', sans-serif;
@@ -36,7 +47,7 @@ li {
 }
 
 .active {
-    color: var(--main-text-color);
+    color: white;
 }
 
 nav {
@@ -243,4 +254,20 @@ word:hover {
     background-color: beige;
     transition: ease-in-out 0.2s;
     color: black;
+}
+
+.error-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5rem;
 }
