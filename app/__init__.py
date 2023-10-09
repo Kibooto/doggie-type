@@ -15,9 +15,9 @@ def create_app():
    
     if not hasattr(app, 'db'):
         db.init_app(app)
+
+    from app.models import User
     
     routes.configure_routes(app, db, login_manager)
     
-    return app, db, login_manager
-
-from app.models import User
+    return app, db, login_manager, User

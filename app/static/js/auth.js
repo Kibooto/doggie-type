@@ -142,7 +142,7 @@ regForm.addEventListener('submit', function (e) {
     }).then(function (response) {
         return response.text();
     }).then(function (text) {
-        window.location.replace("/");
+        window.location.replace("/profile");
     }).catch(function (error) {
         console.error(error);
     });
@@ -167,7 +167,7 @@ loginForm.addEventListener('submit', function (e) {
         }
         return response.text();
     }).then(function (text) {
-        window.location.replace("/");
+        window.location.replace("/profile");
         console.log(text);
     }).catch(function (error) {
         console.error(error);

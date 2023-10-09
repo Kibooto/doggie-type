@@ -1,0 +1,13 @@
+To user add:
+level
+exp
+joined time
+bages
+github
+twitter
+website
+keyboard
+bio
+tests started
+tests completed
+time of typing

@@ -20,6 +20,14 @@ def configure_routes(app, db, login_manager):
         
         return render_template('auth.html')
     
+    @app.route('/profile', methods=['GET', 'POST'])
+    @login_required
+    def profile():
+        from app.models import User
+        user_data = db.session.query(User).filter_by(username=current_user.username).first()
+
+        return render_template('profile.html', user = user_data)
+    
     @app.route('/logout')
     @login_required
     def logout():

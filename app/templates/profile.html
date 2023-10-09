@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Account</title>
+</head>
+<body>
+    <nav>
+        <div class="main-nav-container">
+            <ul class="nav-container">
+                <li class="nav-element"><a href="/" class="logo">Doggie Type</a></li>
+                <li class="nav-element"><a href="/"><span class="material-symbols-outlined">keyboard</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">stars</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">question_mark</span></a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">settings</span></a></li>
+            </ul>
+
+            <ul class="nav-container">
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">person</span>Kibooto</a></li>
+                <li class="nav-element"><a href="#"><span class="material-symbols-outlined">notifications</span></a></li>
+                <li class="nav-element"><a href="/logout"><span class="material-symbols-outlined">logout</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content-container">
+            <div class="container">
+                <img src="{{ url_for('static', filename='icons/avatar.png') }}" alt="avatar" class="profile-avatar">
+                <div class="profile-name-container">
+                    <p class="text-main">{{ user.username }}</p>
+                    <p class="text-secondary">Joined {{user.joined_time.strftime("%d %B %Y")}}</p>
+                </div>
+            </div>
+            <div class="lvl-container">
+                <p class="text-main">{{ user.level }}</p>
+                <div class="xpBar">
+                    {% set width = (user.exp / 247 * 100)%}
+                    {% if width < 3%}
+                        {% set width = 3 %}
+                    {% endif %}
+                    <div class="bar" style="width: {{width}}%"></div>
+                </div>
+                {{ user.exp }}/247
+            </div>
+        </div>
+        <div class="content-container">
+            <p class="text-secondary">tests started</p>
+            <p class="text-main">{{ user.tests_started }}</p>
+            <p class="text-secondary">tests completed</p>
+            <p class="text-main">{{ user.tests_completed }}</p>
+            <p class="text-secondary">time typing</p>
+            {% set time_of_typing = user.time_of_typing %}
+            {% set hrs = time_of_typing // 3600 %}
+            {% set mins = (time_of_typing - hrs * 3600) // 60 %}
+            {% set secs = time_of_typing - hrs * 3600 - mins * 60 %}
+            <p class="text-main">{{ '%02d:%02d:%02d' % (hrs, mins, secs) }}</p>
+        </div>
+        <div class="profile-bts-container">
+            <button class="side-button"><span class="material-symbols-outlined">
+                edit
+                </span>
+            </button>
+
+            <button class="side-button"><span class="material-symbols-outlined">
+                link
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="profile-container">
+            <p class="text-secondary">Biography </p>
+            {% if user.bio %}
+                <p class="text-main">{{ user.bio }}</p>
+            {% else %}
+                <p class="text-main">No bio yet >D</p>
+            {% endif %}
+            <br>
+
+            {% if user.keyboard %}
+                <p class="text-secondary">Keyboard </p>
+                <p class="text-main">{{ user.keyboard }}</p>
+            {% endif %}
+        </div>
+
+        <div class="profile-container">
+            <p class="text-secondary">socials</p>
+            {% if user.github %}
+                <div class="container">
+                    <a href="https://github.com/Kibooto" class="text-main">Github</a>
+                </div>
+            {% endif %}
+
+            {% if user.website %}
+                <div class="container">
+                    <a href="https://www.youtube.com/channel/UCefvLFZZPpVr3WLDUYx_H4g" class="text-main">WebSite</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
