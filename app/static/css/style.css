@@ -101,7 +101,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 85%;
+    width: max-content;
     background-color: rgb(44, 46, 49);
     color: var(--main-text-color-2);
     padding: 0;

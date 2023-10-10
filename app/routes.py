@@ -8,17 +8,24 @@ def configure_routes(app, db, login_manager):
         from app.models import User
         return User.query.get(int(user_id))
 
-    @app.route('/')
-    @login_required
+    @app.route('/', methods=['GET', 'POST'])
     def index():
-        return render_template('index.html')
+        return render_template('index.html', current_user=current_user)
+    
+    @app.route('/about', methods=['GET', 'POST'])
+    def about():
+        return render_template('about.html', current_user=current_user)
+    
+    @app.route('/settings', methods=['GET', 'POST'])
+    def settings():
+        return render_template('settings.html', current_user=current_user)
 
     @app.route('/auth', methods=['GET', 'POST'])
     def auth():
         if current_user.is_authenticated:
             return redirect(url_for('index'))
         
-        return render_template('auth.html')
+        return render_template('auth.html', current_user=current_user)
     
     @app.route('/profile', methods=['GET', 'POST'])
     @login_required
@@ -26,7 +33,7 @@ def configure_routes(app, db, login_manager):
         from app.models import User
         user_data = db.session.query(User).filter_by(username=current_user.username).first()
 
-        return render_template('profile.html', user = user_data)
+        return render_template('profile.html', user = user_data, current_user=current_user)
     
     @app.route('/logout')
     @login_required
