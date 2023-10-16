@@ -33,7 +33,11 @@ def configure_routes(app, db, login_manager):
         from app.models import User
         user_data = db.session.query(User).filter_by(username=current_user.username).first()
 
-        return render_template('profile.html', user = user_data, current_user=current_user)
+        from app.models import Tests
+
+        tests = db.session.query(Tests).filter_by(foreign_id=current_user.id).all()
+
+        return render_template('profile.html', user = user_data, current_user=current_user, user_tests=tests)
     
     @app.route('/logout')
     @login_required

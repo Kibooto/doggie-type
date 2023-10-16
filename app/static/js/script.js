@@ -25,6 +25,7 @@ let wordList = [
     "edition",
     "scratch"
 ];
+
 let isTesting = false;
 let currentWords = []
 let currentWord = ""
@@ -142,21 +143,3 @@ function onDeleteKeyPress(event) {
 }
 
 document.addEventListener('keydown', onDeleteKeyPress);
-
-
-
-
-
-
-
-
-// function onEnterKeyPress(event) {
-//     if (!isTesting) {
-//         if (event.keyCode === 32) {
-//             console.log('Testing started');
-//             focusOnInput();
-//         }
-//     }
-// }
-
-// document.addEventListener('keydown', onEnterKeyPress);

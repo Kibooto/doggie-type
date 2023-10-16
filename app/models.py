@@ -25,3 +25,23 @@ class User(UserMixin, db.Model):
     
     def is_active(self):
         return True
+    
+class Tests(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    foreign_id = db.Column(db.Integer, nullable=False)
+    test_name = db.Column(db.String(128), nullable=False)
+    test_type = db.Column(db.String(128), nullable=False)
+    test_language = db.Column(db.String(128), nullable=False)
+    test_difficulty = db.Column(db.Integer, nullable=False)
+    test_time = db.Column(db.Integer, nullable=False)
+    test_wpm = db.Column(db.Integer, nullable=False)
+    test_accuracy = db.Column(db.Integer, nullable=False)
+    test_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    test_characters = db.Column(db.Integer, nullable=False)
+    test_words = db.Column(db.Integer, nullable=False)
+    test_correct_words = db.Column(db.Integer, nullable=False)
+    test_incorrect_words = db.Column(db.Integer, nullable=False)
+    test_correct_characters = db.Column(db.Integer, nullable=False)
+    test_incorrect_characters = db.Column(db.Integer, nullable=False)
+    test_consistency = db.Column(db.Integer, nullable=False)
+    test_completed = db.Column(db.Boolean, nullable=False, default=False)
